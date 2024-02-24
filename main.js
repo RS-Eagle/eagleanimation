@@ -6,14 +6,9 @@ class rsAnimate {
         this.list = list;
         this.innertext = this.path.innerHTML;
         this.speed = 100;
-        this.twrite = new twrite(this);
+        this.twrite = typeof twrite === 'function' ? new twrite(this): false;
     }
 
    
 }
 
-let list = ["Hii This is Raman", "Hii Welcome"]
-
-
-let ab = new rsAnimate(document.querySelector("span"),list)
-ab.twrite.init();
