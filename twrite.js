@@ -10,7 +10,8 @@ class twrite{
         this.speed = main.speed
         this.path =  main.path
         this.lineCountInc = 0
-        this.repeat = false
+        this.repeat = true
+        this.pauseTime = 2000
     }
 
     init(){
@@ -36,16 +37,17 @@ class twrite{
         }
     }
     increment() {
-        this.visibleLine = this.line.slice(0, this.index);
         this.index++
-        if (this.line.length != this.visibleLine.length){
+        this.visibleLine = this.line.slice(0, this.index);
+        if(this.line.length < this.index){
+            setTimeout(()=>{
+                this.lineCount <= this.lineCountInc && !this.repeat ?'':this.decrement() ;
+            },this.pauseTime)
+        }else if (this.line.length >= this.index){
             setTimeout( ()=> {
                 this.main.path.innerHTML = this.visibleLine;
                 this.increment();
             }, this.speed);
-        }else if(this.line.length == this.visibleLine.length){
-            
-            this.lineCount <= this.lineCountInc && !this.repeat ?'':this.decrement() ;
         }else{
             console.warn("Need A Valid this.list")
         }
@@ -54,15 +56,17 @@ class twrite{
      decrement() {
         this.visibleLine = this.line.slice(0, this.index);
         this.index--
-        if (this.visibleLine.length >= 1){
+        console.log(this.index,this.visibleLine)
+        if (this.index >= -1){
             setTimeout( ()=> {
                 this.main.path.innerHTML = this.visibleLine;
                 this.decrement();
             }, this.speed);
-        }else if(this.visibleLine.length == 0){
-            this.lineDecider();
+        }else if(this.visibleLine.length >= 0){
+            setTimeout(()=>{
+                this.lineDecider();
+            },this.pauseTime)
         }else{
-            console.log(this.visibleLine.length)
             console.warn("Need A Valid this.list")
         }
     }

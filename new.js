@@ -1,5 +1,5 @@
-let list = ["Hii This is Raman", "Hii Welcome"]
+let list = ["Hii This is Raman", "wii Welcome"]
 
 
-let ab = new rsAnimate(document.querySelector("span"),list)
-// ab.twrite.init();
+let ab = new rsAnimate(document.querySelector("h2"),list)
+ab.twrite.init();
