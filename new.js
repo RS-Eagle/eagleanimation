@@ -1,11 +1,8 @@
 let list = ["Welcome To All", "Give A Star To This Repo"]
-let ab = new rsAnimate(document.querySelector("h2"),list);
 
-ab.twriteInit()
 
-let obj = {
-    speed: 50,
-    pauseTime:200,
-}
+let ab = new rsAnimate(document.querySelector("h2"));
 
-ab.twriteUpdate(obj)
+ab.twriteInit(list)
+
+

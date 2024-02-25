@@ -2,11 +2,11 @@ class twrite{
     constructor(main){
         this.main = main
         this.lineIndex = 0;
-        this.lineCount = main.list.length;
+        this.list = []
+        this.lineCount = this.list.length;
         this.line = "";
         this.visibleLine = "";
         this.index = 1;
-        this.list = main.list
         this.speed = 100;
         this.path =  main.path
         this.lineCountInc = 0
@@ -18,7 +18,8 @@ class twrite{
         }
     }
 
-    init(){
+    init(inputList){
+        this.list = inputList
         this.lineCountInc = 0
         this.line = "";
         this.visibleLine = "";
@@ -27,8 +28,11 @@ class twrite{
     }
 
     lineDecider() {
+        
         this.index = 1;
         this.lineCountInc++
+        this.lineCount = this.list.length;
+        console.log(this.lineCount)
         if(this.lineCount < this.lineCountInc){
             this.repeat ? this.init() : '';
         }
@@ -41,6 +45,7 @@ class twrite{
         }
     }
     increment() {
+        
         this.index++
         this.visibleLine = this.line.slice(0, this.index);
         if(this.line.length < this.index){
