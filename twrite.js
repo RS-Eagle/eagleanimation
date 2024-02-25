@@ -7,11 +7,15 @@ class twrite{
         this.visibleLine = "";
         this.index = 1;
         this.list = main.list
-        this.speed = main.speed
+        this.speed = 100;
         this.path =  main.path
         this.lineCountInc = 0
-        this.repeat = true
+        this.repeat = false
         this.pauseTime = 2000
+        let onlyUpdate = ['speed','repeat','pauseTime'];
+        this.updates = function(){
+            return onlyUpdate;
+        }
     }
 
     init(){
@@ -56,7 +60,7 @@ class twrite{
      decrement() {
         this.visibleLine = this.line.slice(0, this.index);
         this.index--
-        console.log(this.index,this.visibleLine)
+        // console.log(this.index,this.visibleLine)
         if (this.index >= -1){
             setTimeout( ()=> {
                 this.main.path.innerHTML = this.visibleLine;
