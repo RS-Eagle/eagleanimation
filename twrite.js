@@ -28,11 +28,9 @@ class twrite{
     }
 
     lineDecider() {
-        
         this.index = 1;
         this.lineCountInc++
         this.lineCount = this.list.length;
-        console.log(this.lineCount)
         if(this.lineCount < this.lineCountInc){
             this.repeat ? this.init() : '';
         }
