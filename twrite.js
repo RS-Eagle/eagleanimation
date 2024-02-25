@@ -5,6 +5,7 @@ class twrite{
         this.list = []
         this.lineCount = this.list.length;
         this.line = "";
+        this.running=false;
         this.visibleLine = "";
         this.index = 1;
         this.speed = 100;
@@ -17,29 +18,37 @@ class twrite{
             return onlyUpdate;
         }
     }
+    verify(inputList){
+        if(!this.running){
+            this.list = inputList;
+            this.lineCount = this.list.length;
+            this.init();
+            this.running = true
+        }else{
+            throw new TypeError("twrite must be called Once");
+        }
+    }
 
-    init(inputList){
-        this.list = inputList
-        this.lineCountInc = 0
+    init(){
+        this.lineCountInc = 0;
         this.line = "";
         this.visibleLine = "";
         this.lineIndex = 0;
-        this.lineDecider()
+        this.lineDecider();
     }
 
     lineDecider() {
         this.index = 1;
-        this.lineCountInc++
-        this.lineCount = this.list.length;
+        this.lineCountInc++;
         if(this.lineCount < this.lineCountInc){
             this.repeat ? this.init() : '';
         }
         else if(this.lineIndex != this.list.lenght){
         this.line = this.list[this.lineIndex];
-        this.lineIndex++
+        this.lineIndex++;
         this.increment();
         }else{
-            console.warn("Need A Valid List")
+            console.warn("Need A Valid List");
         }
     }
     increment() {

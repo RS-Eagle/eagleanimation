@@ -1,6 +1,5 @@
 "use-strict"
 class rsAnimate {
-
     constructor(path) {
         if (path === null || path === undefined || path.nodeType !== 1) {
             throw new TypeError('Please Enter A Valid Path');
@@ -12,13 +11,12 @@ class rsAnimate {
         this.twritereturn = function(){
           return classtwrite
         }
-        
     }
     twriteInit(inputList){
       if (Array.isArray(inputList) === false) {
         throw new TypeError('list must be an array');
       }
-        this.twritereturn().init(inputList)
+        this.twritereturn().verify(inputList)
     }
     twriteUpdate(obj){
         if(typeof obj === 'object'  && !Array.isArray(obj)){
