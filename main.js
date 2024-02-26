@@ -8,8 +8,12 @@ class rsAnimate {
         this.path = path;
         this.innertext = this.path.innerHTML;
         let classtwrite = typeof twrite === 'function' ? new twrite(this): false;
+        let classwaveSplit = typeof twrite === 'function' ? new waveSplit(this): false;
         this.twritereturn = function(){
           return classtwrite
+        }
+        this.waveSplitreturn = function(){
+          return classwaveSplit
         }
     }
     twriteInit(inputList){
@@ -17,6 +21,9 @@ class rsAnimate {
         throw new TypeError('list must be an array');
       }
         this.twritereturn().verify(inputList)
+    }
+    waveSplitInit(){
+        this.waveSplitreturn().break()
     }
     twriteUpdate(obj){
         if(typeof obj === 'object'  && !Array.isArray(obj)){
