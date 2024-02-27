@@ -1,10 +1,12 @@
+"use-strict"
+
 class waveSplit{
     constructor(main){
         this.main = main;
         this.style = document.createElement('style')
         this.innerText = this.main.innertext;
         this.path = this.main.path
-        this.splitText = []
+        this.splitText = this.innerText.split("")
         this.innerSpan = []
         let validEnteries = ["fade",]
         let randomNumber = function(){return Math.floor(Math.random() * 100000)}
@@ -15,17 +17,17 @@ class waveSplit{
         this.isIntervalFinished = false;
         this.styleID = ''
         this.retrunRandomNumber = function(){return randomNumber()}
+        this.stylelistindex = 1;
         
     }
     init(){
         if(!this.running){
             
-            console.log('hhhh')
             this.running = !this.running
-            this.break();
+            this.populator();
         }else if(this.repeat){
             setTimeout(()=>{
-                console.log("3s")
+               
                 this.classRemover();
             },3000)
         }
@@ -33,17 +35,20 @@ class waveSplit{
 
     classRemover(){
         let allStyleSheet = document.styleSheets;
-        console.log(allStyleSheet)
+      
         for(let i = 0; i< allStyleSheet.length; i++){
             if(allStyleSheet[i].title === "eagleAnimation"){
-               
-                allStyleSheet[i].cssRules[1].style = {}
+                allStyleSheet[i].cssRules[this.stylelistindex ].style = {}
+                this.stylelistindex += 2
+                console.log(allStyleSheet[i])
+                setTimeout(()=>{
+                    this.path.innerHTML = " "
+                    const styleSheet = document.getElementById(this.styleID);
+                    document.head.removeChild(styleSheet);
+                    this.populator();
+                },1000)
             }
         }
-        const styleSheet = document.getElementById(this.styleID);
-        document.head.removeChild(styleSheet);
-        
-
     }
     animate(){
         this.styleID = `${this.retrunRandomNumber()}__eagelanimation`
@@ -57,8 +62,7 @@ class waveSplit{
 
 
 
-    break(){
-        this.splitText = this.innerText.split("")
+    populator(){
         this.path.innerText = '' 
         for(let i = 0; i < this.innerText.length; i++){
             this.path.innerHTML  +=  `<span class="${this.splitText[i].trim() !== ''?"__rsanimate_initial__":""}">${this.splitText[i]}</span>`
