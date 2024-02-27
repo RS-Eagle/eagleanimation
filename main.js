@@ -23,7 +23,7 @@ class rsAnimate {
         this.twritereturn().verify(inputList)
     }
     waveSplitInit(){
-        this.waveSplitreturn().break()
+        this.waveSplitreturn().init()
     }
     twriteUpdate(obj){
         if(typeof obj === 'object'  && !Array.isArray(obj)){
