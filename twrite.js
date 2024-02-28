@@ -72,7 +72,6 @@ class twrite{
      decrement() {
         this.visibleLine = this.line.slice(0, this.index);
         this.index--
-        // console.log(this.index,this.visibleLine)
         if (this.index >= -1){
             setTimeout( ()=> {
                 this.main.path.innerHTML = this.visibleLine;
