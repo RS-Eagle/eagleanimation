@@ -10,11 +10,13 @@ class waveSplit{
         this.innerSpan = []
         this.speed = 100
         this.pauseTime = 500;
-        this.repeat = false
+        this.repeat = true
         this.running=false
         this.isIntervalFinished = false;
         this.styleID = ''
         this.inAniSpeed = 100
+        this.outTime = 2000;
+        this.outTimeFix = null;
         this.retrunRandomNumber = function(){return randomNumber()}
         this.stylelistindex = 1;
         let randomNumber = function(){return Math.floor(Math.random() * 100000)}
@@ -24,7 +26,8 @@ class waveSplit{
         dY: function(e){return (-15000<e<15000) },
         inAni:function(e){return e === "color"|| e==="move"},
         inAniSpeed:function(e){return 1<e<1000},
-        repeat: function(e){return typeof e === 'boolean'}
+        repeat: function(e){return typeof e === 'boolean'},
+        outTime:function(e){return 1000<e<10000}
     } 
         
     }
@@ -35,7 +38,7 @@ class waveSplit{
         }else if(this.repeat){
             setTimeout(()=>{
                 this.classRemover();
-            },3000)
+            },this.outTimeFix)
         }
     }
 
@@ -59,13 +62,10 @@ class waveSplit{
         this.style.id = this.styleID
         this.style.type = 'text/css';
         this.style.title = "eagleAnimation"
-        this.style.appendChild(document.createTextNode(".__rsanimate_initial__{display: inline-block; opacity: 0;transform: translateY(-1000px); transition: all 0.4s ease;} .__rsanimate_in__{opacity: 1;transform: translateY(0px);}"));
+        this.style.appendChild(document.createTextNode(".__rsanimate_initial__{display: inline-block; opacity: 0;transform: translateY(-100px); transition: all 0.4s ease;} .__rsanimate_in__{opacity: 1;transform: translateY(0px);}"));
         document.head.appendChild(this.style);
         this.classAppend()
     }
-
-
-
     populator(){
         this.path.innerText = '' 
         for(let i = 0; i < this.innerText.length; i++){
@@ -76,6 +76,7 @@ class waveSplit{
     }
     classAppend(){
         this.innerSpan = Array.from(this.path.querySelectorAll("span"));
+        this.outTimeFix = (this.inAniSpeed*this.innerSpan.length) + this.outTime
         let i = 0
         const repeat=()=>{
                 this.innerSpan[i].classList.add("__rsanimate_in__")
