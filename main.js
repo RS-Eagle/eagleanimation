@@ -37,7 +37,7 @@ class rsAnimate {
             this.twritereturn()[updates[i]] = obj[updates[i]]
           }
         }else{
-          throw new TypeError('The update value must be in the object.');
+          throw new TypeError('The update value must be the object.');
         }
     }
    

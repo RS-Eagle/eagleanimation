@@ -13,8 +13,8 @@ class waveSplit {
     this.styleID = "";
     this.aniSpeed = 100;
     this.pauseTime = 1000;
-    this.inDir = "left";
-    this.outDir = "right";
+    this.inDir = "right";
+    this.outDir = "left";
     this.outTimeFix = null;
     this.stylelistindex = 1;
     let randomNumber = function () {
@@ -104,9 +104,9 @@ class waveSplit {
    
     styleSheet.appendChild(
       document.createTextNode(
-        `.${this.classReturnInitial()}{display: inline-block; opacity: 0;transform: translateX(-30px); transition: all ${
+        `.${this.classReturnInitial()}{display: inline-block; color: white;transform: ; transition: all ${
           this.aniSpeed / 1000
-        }s ease;} .${this.classReturnIn()}{opacity: 1;transform: translateX(0px);}`
+        }s ease;} .${this.classReturnIn()}{opacity: 1;color: orange;}`
       )
     );
     document.head.appendChild(styleSheet);
