@@ -104,9 +104,9 @@ class waveSplit {
    
     styleSheet.appendChild(
       document.createTextNode(
-        `.${this.classReturnInitial()}{display: inline-block; opacity: 0;transform: translateY(-10px); transition: all ${
+        `.${this.classReturnInitial()}{display: inline-block; opacity: 0;transform: translateX(-30px); transition: all ${
           this.aniSpeed / 1000
-        }s ease;} .${this.classReturnIn()}{opacity: 1;transform: translateY(0px);}`
+        }s ease;} .${this.classReturnIn()}{opacity: 1;transform: translateX(0px);}`
       )
     );
     document.head.appendChild(styleSheet);
@@ -141,3 +141,4 @@ class waveSplit {
     this.init();
   }
 }
+
