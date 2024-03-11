@@ -13,7 +13,7 @@ class waveSplit {
     this.styleID = "";
     this.aniSpeed = 100;
     this.pauseTime = 1000;
-    this.inDir = "right";
+    this.inDir = "left";
     this.outDir = "left";
     this.outTimeFix = null;
     this.stylelistindex = 1;
@@ -40,7 +40,6 @@ class waveSplit {
       "aniSpeed",
       "inDir",
       "inAni",
-      "outAni",
       "pauseTime",
       "repeat",
     ];
@@ -104,9 +103,9 @@ class waveSplit {
    
     styleSheet.appendChild(
       document.createTextNode(
-        `.${this.classReturnInitial()}{display: inline-block; color: white;transform: ; transition: all ${
+        `.${this.classReturnInitial()}{opacity: 0;display: inline-block; transform: translateY(-20px); transition: all ${
           this.aniSpeed / 1000
-        }s ease;} .${this.classReturnIn()}{opacity: 1;color: orange;}`
+        }s ease;} .${this.classReturnIn()}{opacity: 1;transform: translateX(0px)}`
       )
     );
     document.head.appendChild(styleSheet);
