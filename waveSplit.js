@@ -18,6 +18,7 @@ class waveSplit {
     this.outDir = "left";
     this.outTimeFix = null;
     this.stylelistindex = 1;
+    this.updatesObject = {}
     
 
     // Animation Decider Varibales
@@ -43,14 +44,14 @@ class waveSplit {
     let animations = ["leftFade","rightFade","topFade","bottomFade","topDrop","bottomDrop","leftDrop","rightDrop","colorFade","colorAdd"]
 
     let animationObjectInitial = {
-      topFade:"opacity: 0;transform: translateY(-20px);",
-      bottomFade:"opacity: 0;transform: translateY(20px);",
-      rightFade:"opacity: 0;transform: translateX(20px);",
-      leftFade:"opacity: 0;transform: translateX(-20px);",
-      topDrop:"opacity: 0;transform: translateY(-500px);",
-      bottomDrop:"opacity: 0;transform: translateY(500px);",
-      leftDrop:"opacity: 0;transform: translateX(-500px);",
-      rightDrop:"opacity: 0;transform: translateX(500px);",
+      topFade:`opacity: 0;transform: translateY(-20px);color: ${this.colorValue};`,
+      bottomFade:`opacity: 0;transform: translateY(20px);color: ${this.colorValue};`,
+      rightFade:`opacity: 0;transform: translateX(20px);color: ${this.colorValue};`,
+      leftFade:`opacity: 0;transform: translateX(-20px);color: ${this.colorValue};`,
+      topDrop:`opacity: 0;transform: translateY(-500px);color: ${this.colorValue};`,
+      bottomDrop:`opacity: 0;transform: translateY(500px);color: ${this.colorValue};`,
+      leftDrop:`opacity: 0;transform: translateX(-500px);color: ${this.colorValue};`,
+      rightDrop:`opacity: 0;transform: translateX(500px);color: ${this.colorValue};`,
       colorFade:`opacity: 0;`,
       colorAdd:`opacity: 1;color: ${this.inColorValue};`
     }
@@ -68,11 +69,47 @@ class waveSplit {
     }
 
     // 
+
+        // All User Updates 
+        let validEnteriesKeys = [
+          "aniSpeed",
+          "inDir",
+          "inAni",
+          "pauseTime",
+          "repeat",
+          "inColor",
+          "color"
+        ];
+        let validEnteriesValueRange = {
+          aniSpeed: function (e) {
+            return 1 < e < 5000;
+          },
+          inDir: function (e) {
+            return e === "left" || e === "right";
+          },
+          inAni:  (e)=> {
+            return this.animationsReturn().includes(e);
+          },
+          repeat: function (e) {
+            return typeof e === "boolean";
+          },
+          pauseTime: function (e) {
+            return 1000 < e < 10000;
+          },
+        };
+    
+      //USer Input Endded
     // All Return Varibles
 
     let randomNumber = function () {
       return Math.floor(Math.random() * 100000);
     };
+    this.validEnteriesValueRangeReturn = function(){
+      return validEnteriesValueRange;
+    }
+    this.validKeysReturn = function(){
+      return validEnteriesKeys
+    }
     this.animationObjectOutReturn=function(){
       return animationObjectOut
     }
@@ -102,37 +139,10 @@ class waveSplit {
     this.classReturnIn = function () {
       return classInAnimation();
     };
+
     //Return Ended
 
-    // All User Updates 
-    let validEnteriesKeys = [
-      "aniSpeed",
-      "inDir",
-      "inAni",
-      "pauseTime",
-      "repeat",
-      "inColor",
-      "color"
-    ];
-    let validEnteriesValueRange = {
-      aniSpeed: function (e) {
-        return 1 < e < 1000;
-      },
-      inDir: function (e) {
-        return e === "left" || e === "right";
-      },
-      inAni: function (e) {
-        return e === "color" || e === "move";
-      },
-      repeat: function (e) {
-        return typeof e === "boolean";
-      },
-      pauseTime: function (e) {
-        return 1000 < e < 10000;
-      },
-    };
 
-  //USer Input Endded
 
  
 }
@@ -154,6 +164,13 @@ class waveSplit {
     }
   }
 
+  variableUpdate(obj){
+    for(let i = 0; i<(Object.keys(obj)).length;i++){
+     
+    }
+  }
+
+
   animationDecider(){
     let animationIn = `display: inline-block;`
     let animationOut = ``
@@ -168,7 +185,7 @@ class waveSplit {
       }
     })
     animationIn+= `transition: all ${this.cssaniSpeed}s ease;`
-    console.log(animationIn)
+
     this.currentAniationInitialUpdate(animationIn)
     this.currentAniationOutUpdate(animationOut)
     
@@ -201,7 +218,6 @@ class waveSplit {
         styleSheet.id = "eagleanimation" 
       }
     }
-   
     styleSheet.appendChild(
       document.createTextNode(
         `.${this.classReturnInitial()}{${this.currentAniationInitialReturn()}} .${this.classReturnIn()}{${this.currentAniationOutReturn()}}`

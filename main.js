@@ -42,11 +42,19 @@ class rsAnimate {
     }
     waveSplitUpdate(obj){
       if(typeof obj === 'object'  && !Array.isArray(obj)){
-        let updates = Object.keys(obj).sort().filter((e)=>this.twritereturn().updates().includes(e));
-        console.log(updates)
-        for (let i = 0; i <= updates.length; i++) {
-          this.twritereturn()[updates[i]] = obj[updates[i]]
+        let updates = Object.keys(obj).sort().filter((e)=>this.waveSplitreturn().validKeysReturn().includes(e));
+
+        for(let i = 0; i <updates.length;i++){
+          if(!this.waveSplitreturn().validEnteriesValueRangeReturn()[updates[i]](obj[updates[i]])){
+            console.warn(`Please Enter A Valid Input For ${updates[i]}`)
+            delete obj[updates[i]]
+          }
+          if(i+1 === updates.length){
+            this.waveSplitreturn().variableUpdate(obj)
+          }
         }
+        
+        
       }else{
         throw new TypeError('The update value must be the object.');
       }
