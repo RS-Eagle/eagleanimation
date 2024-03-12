@@ -40,6 +40,17 @@ class rsAnimate {
           throw new TypeError('The update value must be the object.');
         }
     }
+    waveSplitUpdate(obj){
+      if(typeof obj === 'object'  && !Array.isArray(obj)){
+        let updates = Object.keys(obj).sort().filter((e)=>this.twritereturn().updates().includes(e));
+        console.log(updates)
+        for (let i = 0; i <= updates.length; i++) {
+          this.twritereturn()[updates[i]] = obj[updates[i]]
+        }
+      }else{
+        throw new TypeError('The update value must be the object.');
+      }
+  }
    
 }
 
