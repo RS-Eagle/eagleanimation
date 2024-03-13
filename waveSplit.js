@@ -18,17 +18,14 @@ class waveSplit {
     this.outDir = "left";
     this.outTimeFix = null;
     this.stylelistindex = 1;
-    this.updatesObject = {}
-    
+
 
     // Animation Decider Varibales
-    this.currentAnimation = "bottomFade"
-    this.colorValue= "green"
-    this.inColorValue = "white"
-    let currentAniationInitial = `opacity: 0;display: inline-block; transform: translateY(-500px); transition: all ${
-      this.cssaniSpeed
-    }s ease;`
-    let currentAniationOut = `opacity: 1;transform: translateY(0px)`
+    this.inAni = "bottomFade"
+    this.baseColor= "white"
+    this.inColor = "white"
+    let currentAniationInitial = ``
+    let currentAniationOut = ``
 
     //Animation Decider Ended
     //Animation Decider Update
@@ -44,16 +41,16 @@ class waveSplit {
     let animations = ["leftFade","rightFade","topFade","bottomFade","topDrop","bottomDrop","leftDrop","rightDrop","colorFade","colorAdd"]
 
     let animationObjectInitial = {
-      topFade:`opacity: 0;transform: translateY(-20px);color: ${this.colorValue};`,
-      bottomFade:`opacity: 0;transform: translateY(20px);color: ${this.colorValue};`,
-      rightFade:`opacity: 0;transform: translateX(20px);color: ${this.colorValue};`,
-      leftFade:`opacity: 0;transform: translateX(-20px);color: ${this.colorValue};`,
-      topDrop:`opacity: 0;transform: translateY(-500px);color: ${this.colorValue};`,
-      bottomDrop:`opacity: 0;transform: translateY(500px);color: ${this.colorValue};`,
-      leftDrop:`opacity: 0;transform: translateX(-500px);color: ${this.colorValue};`,
-      rightDrop:`opacity: 0;transform: translateX(500px);color: ${this.colorValue};`,
+      topFade:`opacity: 0;transform: translateY(-20px);`,
+      bottomFade:`opacity: 0;transform: translateY(20px);`,
+      rightFade:`opacity: 0;transform: translateX(20px);`,
+      leftFade:`opacity: 0;transform: translateX(-20px);`,
+      topDrop:`opacity: 0;transform: translateY(-500px);`,
+      bottomDrop:`opacity: 0;transform: translateY(500px);`,
+      leftDrop:`opacity: 0;transform: translateX(-500px);`,
+      rightDrop:`opacity: 0;transform: translateX(500px);`,
       colorFade:`opacity: 0;`,
-      colorAdd:`opacity: 1;color: ${this.inColorValue};`
+      colorAdd:`opacity: 1;`
     }
     let animationObjectOut = {
       topFade:"opacity: 1;transform: translateY(0);",
@@ -64,8 +61,8 @@ class waveSplit {
       bottomDrop:"opacity: 1;transform: translateY(0);",
       leftDrop:"opacity: 1;transform: translateX(0);",
       rightDrop:"opacity: 1;transform: translateX(0);",
-      colorFade:`opacity: 1;color: ${this.colorValue};`,
-      colorAdd:`color: ${this.colorValue};`
+      colorFade:`opacity: 1;`,
+      colorAdd:``
     }
 
     // 
@@ -77,8 +74,9 @@ class waveSplit {
           "inAni",
           "pauseTime",
           "repeat",
+          "baseColor",
           "inColor",
-          "color"
+          "outDir"
         ];
         let validEnteriesValueRange = {
           aniSpeed: function (e) {
@@ -96,14 +94,34 @@ class waveSplit {
           pauseTime: function (e) {
             return 1000 < e < 10000;
           },
+          baseColor: function(e){
+            return typeof e === 'string'
+          },
+          inColor: function(e){
+            return typeof e === 'string'
+          },
+          outDir: function(e){
+            return e === "left" || e === "right";
+          }
         };
-    
+        let colorNotAllowedbase = ['colorFade','colorAdd']
+        let colorAllowedInColor = ['colorAdd','colorFade']
+        let colorInColor = ['colorFade']
       //USer Input Endded
     // All Return Varibles
 
     let randomNumber = function () {
       return Math.floor(Math.random() * 100000);
     };
+    this.colorInColorReturn=function(){
+      return colorInColor
+    }
+    this.colorNotAllowedbaseReturn = function(){
+      return colorNotAllowedbase
+    }
+    this.colorAllowedInColorReturn = function(){
+      return colorAllowedInColor
+    }
     this.validEnteriesValueRangeReturn = function(){
       return validEnteriesValueRange;
     }
@@ -147,12 +165,20 @@ class waveSplit {
  
 }
 //Contructor Ended
+variableUpdate(obj = {}){
+  let objKeys = Object.keys(obj)
+  console.log(objKeys)
+  for(let i = 0; i<objKeys.length;i++){
+   this[objKeys[i]] = obj[objKeys[i]]
+   if(i+1 == objKeys.length){
+    this.init();
+   }
+  }
+  
 
-
-
-
+  
+}
   init() {
-    // console.log(this.classReturnInitial())
     if (!this.running) {
       this.running = !this.running;
       this.animationDecider()
@@ -164,27 +190,32 @@ class waveSplit {
     }
   }
 
-  variableUpdate(obj){
-    for(let i = 0; i<(Object.keys(obj)).length;i++){
-     
-    }
-  }
+
 
 
   animationDecider(){
     let animationIn = `display: inline-block;`
     let animationOut = ``
     Object.keys(this.animationObjectInitialReturn()).forEach((e)=>{
-      if(e===this.currentAnimation){
+      if(e===this.inAni){
         animationIn+= this.animationObjectInitialReturn()[e]
       }
     })
     Object.keys(this.animationObjectOutReturn()).forEach((e)=>{
-      if(e===this.currentAnimation){
+      if(e===this.inAni){
         animationOut+= this.animationObjectOutReturn()[e]
       }
     })
     animationIn+= `transition: all ${this.cssaniSpeed}s ease;`
+    if(!this.colorNotAllowedbaseReturn().includes(this.inAni) ){
+      animationIn+= `color: ${this.baseColor};`
+    }
+    if(this.colorAllowedInColorReturn().includes(this.inAni)){
+      animationOut+= `color: ${this.baseColor};`
+    }
+    if(this.colorInColorReturn().includes(this.inAni)){
+      animationIn+=`color: ${this.inColor};`
+    }
 
     this.currentAniationInitialUpdate(animationIn)
     this.currentAniationOutUpdate(animationOut)

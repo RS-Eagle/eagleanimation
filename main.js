@@ -24,8 +24,8 @@ class rsAnimate {
       }
         this.twritereturn().verify(inputList)
     }
-    waveSplitInit(){
-        this.waveSplitreturn().init()
+    waveSplitInit(obj){
+        this.waveSplitUpdate(obj)
     }
 
     // All Updates 
