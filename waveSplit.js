@@ -80,7 +80,7 @@ class waveSplit {
         ];
         let validEnteriesValueRange = {
           aniSpeed: function (e) {
-            return 1 < e < 5000;
+            return e <=5000 && e >= 100;
           },
           inDir: function (e) {
             return e === "left" || e === "right";
@@ -92,7 +92,7 @@ class waveSplit {
             return typeof e === "boolean";
           },
           pauseTime: function (e) {
-            return 1000 < e < 10000;
+            return e <= 10000 && e >= 0;
           },
           baseColor: function(e){
             return typeof e === 'string'
@@ -166,6 +166,7 @@ class waveSplit {
 }
 //Contructor Ended
 variableUpdate(obj = {}){
+  console.log(this)
   let objKeys = Object.keys(obj)
   console.log(objKeys)
   for(let i = 0; i<objKeys.length;i++){
