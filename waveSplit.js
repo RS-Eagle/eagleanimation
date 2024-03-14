@@ -166,9 +166,9 @@ class waveSplit {
 }
 //Contructor Ended
 variableUpdate(obj = {}){
-  console.log(this)
+  // console.log(this)
   let objKeys = Object.keys(obj)
-  console.log(objKeys)
+  // console.log(objKeys)
   for(let i = 0; i<objKeys.length;i++){
    this[objKeys[i]] = obj[objKeys[i]]
    if(i+1 == objKeys.length){
