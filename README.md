@@ -17,7 +17,7 @@ Welcome to the guide for the "Eagle Animation Library"! This cool library was ma
 
 - WaveSplit :- [Click Me And Copy Url](https://cdn.jsdelivr.net/gh/RS-Eagle/eagleanimation/waveSplit.min.js)
 
-    **Remember to add the "main cdn link" file after all my cdn link.**
+    **Remember to add the "main cdn link" file after all my cdn link in index.htm file.**
 
 ## Usage
 
