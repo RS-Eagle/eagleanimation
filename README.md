@@ -39,10 +39,10 @@ Customize the animation by passing an options object to the waveSplitInit functi
         repeat: false,        // Boolean indicating whether the animation should repeat.
         inAni: "topFade",     // Name of the desired animation effect.
         baseColor: "rgb(18, 180, 23)", // Base color of the text.
-        inColor: "white",     // Color of the incoming animation.
-        inDir: "left",        // Direction of the incoming animation.
-        outDir: "right",      // Direction of the outgoing animation.
-        pauseTime: 1,         // Pause time between animations (in seconds).
+        inColor: "white",     // Color of the incoming animation. Works With `colorAdd`
+        inDir: "left",        // Direction of the animation beginning (left, right).
+        outDir: "right",      //Direction of the outgoing beginning (left, right).
+        pauseTime: 1,         // Pause time between animations.
         aniSpeed: 100         // Speed of the animation.
     });
 
