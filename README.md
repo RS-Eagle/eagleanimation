@@ -24,6 +24,10 @@ Create an instance of the rsAnimate class by providing a text element as a param
 
 ![App Screenshot](https://i.ibb.co/mHBC7gG/Screenshot-2024-03-16-103929.png)
 
+`path`: The text element on which the animation will be applied.
+#### For Example:-
+     let path =  document.querySelector("h2");
+
 - ### Configuration: 
 Customize the animation by passing an options object to the waveSplitInit function.
 
