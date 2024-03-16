@@ -17,21 +17,34 @@ Welcome to the guide for the "Eagle Animation Library"! This cool library was ma
 
 - WaveSplit :- [Click Me And Copy Url](https://cdn.jsdelivr.net/gh/RS-Eagle/eagleanimation/waveSplit.min.js)
 
+    **Remember to add the "main cdn link" file after all my cdn link.**
+
 ## Usage
 
 - ### Initialization: 
-Create an instance of the rsAnimate class by providing a text element as a parameter.
+Create an instance of the rsAnimate() class by providing a text element as a parameter.
 
-![App Screenshot](https://i.ibb.co/mHBC7gG/Screenshot-2024-03-16-103929.png)
+const animation = new rsAnimate(path);
+
 
 `path`: The text element on which the animation will be applied.
 #### For Example:-
-     let path =  document.querySelector("h2");
+     const path =  document.querySelector("h2");
 
 - ### Configuration: 
 Customize the animation by passing an options object to the waveSplitInit function.
 
-![App Screenshot](https://i.ibb.co/fCmz775/Screenshot-2024-03-16-104542.png)
+animation.waveSplitInit({
+    repeat: false,        // Boolean indicating whether the animation should repeat.
+    inAni: "topFade",     // Name of the desired animation effect.
+    baseColor: "rgb(18, 180, 23)", // Base color of the text.
+    inColor: "white",     // Color of the incoming animation.
+    inDir: "left",        // Direction of the incoming animation.
+    outDir: "right",      // Direction of the outgoing animation.
+    pauseTime: 1,         // Pause time between animations (in seconds).
+    aniSpeed: 100         // Speed of the animation.
+});
+
 
 | Keyword  | Description |
 | ------------- | ------------- |
