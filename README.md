@@ -47,9 +47,9 @@ Customize the animation by passing an options object to the waveSplitInit functi
     - #### Valid Inputs:
         - `repeat`: Should be either true or false
         - `inAni`: Should be one of the predefined animation names, including "leftFade", "rightFade", "topFade", "bottomFade", "topDrop", "bottomDrop", "leftDrop", "rightDrop", "colorFade", or "colorAdd".
-        - baseColor: Should be a valid CSS color
-        - inColor: Should be a valid CSS color
-        - inDir and outDir: Should be left or right
+        - `baseColor`: Should be a valid CSS color
+        - `inColor`: Should be a valid CSS color
+        - `inDir` and outDir: Should be left or right
 
 
 
