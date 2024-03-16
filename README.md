@@ -78,7 +78,7 @@ Hi there! I'm Raman Kumar Charak, a passionate Frontend Web Developer with a lov
 ## 🔗 Links
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://rs-eagle.github.io/Portfolio/)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/raman-kumar-charak-36372826b)
-[![Instagram](https://img.shields.io/badge/instagram-f21da1?style=for-the-badge&logo=instagram&logoColor=white)](https://twitter.com/)
+[![Instagram](https://img.shields.io/badge/instagram-f21da1?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/raman.charak1026/)
 
 
 ## 🛠 Skills
