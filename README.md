@@ -60,11 +60,11 @@ Customize the animation by passing an options object to the waveSplitInit functi
 
 - ### Usage Guidelines:
     - #### Ranges:
-        - `pauseTime`:  0 < e < 10000;
-        - `aniSpeed`: 100 < e < 5000;
+        - `pauseTime`:  0 < pauseTime < 10000;
+        - `aniSpeed`: 50 < aniSpeed < 5000;
     - #### Valid Inputs:
         - `repeat`: Should be either true or false
-        - `inAni`: Should be one of the predefined animation names, including "leftFade", "rightFade", "topFade", "bottomFade", "topDrop", "bottomDrop", "leftDrop", "rightDrop", "colorFade", or "colorAdd".
+        - `inAni`: Should be one of the predefined animation names, including `leftFade`, `rightFade`, `topFade`, `bottomFade`, `topDrop`, `bottomDrop`, `leftDrop`, `rightDrop`, `colorFade`, `colorAdd`.
         - `baseColor`: Should be a valid CSS color
         - `inColor`: Should be a valid CSS color
         - `inDir` and outDir: Should be left or right
