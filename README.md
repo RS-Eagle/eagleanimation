@@ -35,17 +35,7 @@ Create an instance of the rsAnimate() class by providing a text element as a par
 Customize the animation by passing an options object to the waveSplitInit function.
 
 #### For Exmaple:- 
-    animation.waveSplitInit({
-        repeat: false,        // Boolean indicating whether the animation should repeat.
-        inAni: "topFade",     // Name of the desired animation effect.
-        baseColor: "rgb(18, 180, 23)", // Base color of the text.
-        inColor: "white",     // Color of the incoming animation. Works With `colorAdd`
-        inDir: "left",        // Direction of the animation beginning (left, right).
-        outDir: "right",      //Direction of the outgoing beginning (left, right).
-        pauseTime: 1,         // Pause time between animations.
-        aniSpeed: 100         // Speed of the animation.
-    });
-    waveSplitInit({
+    animation.    waveSplitInit({
     repeat:false,    // Boolean indicating whether the animation should repeat.
     inAni: "flipY",    // Name of the desired animation effect.
     baseColor: "white",    // Base color of the text.
@@ -56,7 +46,8 @@ Customize the animation by passing an options object to the waveSplitInit functi
     speedControl:false,    // Control Printing Speed.
     aniSpeed:6000, // Speed of the animation.
     onView:true  // Animation Start When Element On Screen (viewport)
-})
+    });
+
 
 
 | Keyword  | Description |
