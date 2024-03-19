@@ -229,7 +229,6 @@ class waveSplit {
   }
 
   isInViewport(path) {
-    console.log('ss')
     const rect = path.getBoundingClientRect();
     return (
       rect.top >= 0 &&
