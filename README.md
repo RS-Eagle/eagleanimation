@@ -45,13 +45,25 @@ Customize the animation by passing an options object to the waveSplitInit functi
         pauseTime: 1,         // Pause time between animations.
         aniSpeed: 100         // Speed of the animation.
     });
+    waveSplitInit({
+    repeat:false,    // Boolean indicating whether the animation should repeat.
+    inAni: "flipY",    // Name of the desired animation effect.
+    baseColor: "white",    // Base color of the text.
+    inColor:"blue",    // Color of the incoming animation. Works With `colorAdd`
+    inDir:"left",    // Direction of the animation beginning (left, right).
+    outDir:"right",    //Direction of the outgoing beginning (left, right).
+    pauseTime:2000,    // Pause time between animations.
+    speedControl:false,    // Control Printing Speed.
+    aniSpeed:6000, // Speed of the animation.
+    onView:true  // Animation Start When Element On Screen (viewport)
+})
 
 
 | Keyword  | Description |
 | ------------- | ------------- |
 |  `repeat` | Set to true if the animation should repeat, false otherwise.  |
 | `inAni`  |  Name of the animation effect to apply. |
-| `speedControl` | Set To True if Animation Speed And Word Printing Speed May Different. There Are Some Animation (`fade`, `flipX`, `flipY`) Which Have Their Own Word Printing Speed. So To Disable That Your Need To Set It True |
+| `speedControl` | Set To True if you want to set Animation Speed And Word Printing Speed Different. If True The Printing Speed Will Be The Animation Speed. There Are Some Animation (`fade`, `flipX`, `flipY`) Which Have Their Own Word Printing Speed. So To Disable That Your Need To Set `speedControl` True |
 | `onView` | Animation Occur When Element On Screen (ViewPort) |
 | `baseColor`  | Base color of the text. |
 | `inColor`  |  Color of the incoming animation. Works With `colorAdd` |
