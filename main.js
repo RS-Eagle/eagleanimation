@@ -42,7 +42,7 @@ class rsAnimate {
     }
     waveSplitUpdate(obj){
       if(typeof obj === 'object'  && !Array.isArray(obj)){
-        let updates = Object.keys(obj).sort().filter((e)=>this.waveSplitreturn().validKeysReturn().includes(e));
+        let updates = Object.keys(obj).filter((e)=>this.waveSplitreturn().validKeysReturn().includes(e));
 
         for(let i = 0; i <updates.length;i++){
           if(!this.waveSplitreturn().validEnteriesValueRangeReturn()[updates[i]](obj[updates[i]])){
