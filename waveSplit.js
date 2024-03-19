@@ -20,7 +20,7 @@ class waveSplit {
     this.stylelistindex = 1;
     this.speedControl = false;
     this.activator = false;
-    this.onView = true;
+    this.onView = false;
 
     // Animation Decider Varibales
     this.inAni = "bottomFade";
@@ -54,7 +54,6 @@ class waveSplit {
       "colorAdd",
       "flipX",
       "flipY",
-      "glow",
     ];
 
     let animationObjectInitial = {
@@ -107,10 +106,11 @@ class waveSplit {
       "inColor",
       "outDir",
       "speedControl",
+      "onView"
     ];
     let validEnteriesValueRange = {
       aniSpeed: function (e) {
-        return e <= 5000 && e >= 50;
+        return e <= 6000 && e >= 50;
       },
       inDir: function (e) {
         return e === "left" || e === "right";
@@ -136,6 +136,9 @@ class waveSplit {
       speedControl: function (e) {
         return typeof e === "boolean";
       },
+      onView:function(e){
+        return typeof e ==='boolean'
+      }
     };
     let colorNotAllowedbase = ["colorFade", "colorAdd"];
     let colorAllowedInColor = ["colorAdd", "colorFade"];
@@ -234,6 +237,7 @@ class waveSplit {
       rect.bottom <=
         (window.innerHeight || document.documentElement.clientHeight) &&
       rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      
     );
   }
 
@@ -261,7 +265,7 @@ class waveSplit {
   }
 
   speedUpdate() {
-    this.aniSpeed = 5100 - this.aniSpeed;
+    this.aniSpeed = 6100 - this.aniSpeed;
     if (
       Object.keys(this.speedOfAnimationReturn()).includes(this.inAni) &&
       !this.speedControl

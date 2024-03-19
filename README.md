@@ -51,6 +51,8 @@ Customize the animation by passing an options object to the waveSplitInit functi
 | ------------- | ------------- |
 |  `repeat` | Set to true if the animation should repeat, false otherwise.  |
 | `inAni`  |  Name of the animation effect to apply. |
+| `speedControl` | Set To True if Animation Speed And Word Printing Speed May Different. There Are Some Animation (`fade`, `flipX`, `flipY`) Which Have Their Own Word Printing Speed. So To Disable That Your Need To Set It True |
+| `onView` | Animation Occur When Element On Screen (ViewPort) |
 | `baseColor`  | Base color of the text. |
 | `inColor`  |  Color of the incoming animation. Works With `colorAdd` |
 | `inDir`  |  Direction of the animation beginning (left, right). |
@@ -58,16 +60,19 @@ Customize the animation by passing an options object to the waveSplitInit functi
 | `pauseTime`  |  Pause time between repeat animations  |
 | `aniSpeed`  |  Speed of the animation. |
 
+
 - ### Usage Guidelines:
     - #### Ranges:
         - `pauseTime`:  0 < pauseTime < 10000;
-        - `aniSpeed`: 50 < aniSpeed < 5000;
+        - `aniSpeed`: 50 < aniSpeed < 6000;
     - #### Valid Inputs:
         - `repeat`: Should be either true or false
-        - `inAni`: Should be one of the predefined animation names, including `leftFade`, `rightFade`, `topFade`, `bottomFade`, `topDrop`, `bottomDrop`, `leftDrop`, `rightDrop`, `colorFade`, `colorAdd`.
+        - `inAni`: Should be one of the predefined animation names, including `leftFade`, `rightFade`, `topFade`, `bottomFade`, `topDrop`, `bottomDrop`, `leftDrop`, `rightDrop`, `colorFade`, `colorAdd`,`flipX`,`flipY`.
         - `baseColor`: Should be a valid CSS color
         - `inColor`: Should be a valid CSS color
-        - `inDir` and outDir: Should be left or right
+        - `inDir` and `outDir`: Should be left or right
+        - `speedControl`: Should be  true or false (`fade`, `flipX`, `flipY`)
+        - ``onView`: Should be  true or false
 
 
 
