@@ -45,7 +45,7 @@ Customize the animation by passing an options object to the waveSplitInit functi
         pauseTime:2000,    // Pause time between animations.
         speedControl:false,    // Control Printing Speed.
         aniSpeed:6000, // Speed of the animation.
-        onView:true  // Animation Start When Element On Screen (viewport)
+        onView:false  // Animation Start When Element On Screen (viewport)
     });
 
 
@@ -75,7 +75,7 @@ Customize the animation by passing an options object to the waveSplitInit functi
         - `inColor`: Should be a valid CSS color
         - `inDir` and `outDir`: Should be left or right
         - `speedControl`: Should be  true or false (`fade`, `flipX`, `flipY`)
-        - ``onView`: Should be  true or false
+        - `onView`: Should be  true or false
 
 
 
