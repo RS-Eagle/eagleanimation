@@ -13,15 +13,15 @@ Welcome to the guide for the "Eagle Animation Library"! This cool library was ma
 
 ## CDN Link 🔗
 
-- Main :- [Click Me And Copy Url](https://cdn.jsdelivr.net/gh/RS-Eagle/eagleanimation/main.min.js){:target="_blank"}
+- Main :- [Click Me And Copy Url](https://cdn.jsdelivr.net/gh/RS-Eagle/eagleanimation/main.min.js){Use:- CTRL + Click}
 
-- WaveSplit :- [Click Me And Copy Url](https://cdn.jsdelivr.net/gh/RS-Eagle/eagleanimation/waveSplit.min.js){:target="_blank"}
+- WaveSplit :- [Click Me And Copy Url](https://cdn.jsdelivr.net/gh/RS-Eagle/eagleanimation/waveSplit.min.js){Use:- CTRL + Click}
 
     **Remember to add the "main cdn link" file after all my cdn link in index.htm file.**
 
 ## Demo Code
   - Download / Copy Demo Code From The Given Link 
-  - Link Of Demo Code Repo :- [Click Me And Download The Code](https://github.com/RS-Eagle/demo-eagleanimation){:target="_blank"}    
+  - Link Of Demo Code Repo :- [Click Me And Download The Code](https://github.com/RS-Eagle/demo-eagleanimation){Use:- CTRL + Click}
 
 ## Usage
 
