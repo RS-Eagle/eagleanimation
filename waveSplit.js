@@ -11,8 +11,8 @@ class waveSplit {
     this.running = false;
     this.isIntervalFinished = false;
     this.styleID = "";
-    this.aniSpeed = 100;
-    this.cssaniSpeed = 1;
+    this.aniSpeed = 4.8;
+    this.cssaniSpeed = 6;
     this.pauseTime = 1000;
     this.inDir = "left";
     this.outDir = "left";
@@ -110,7 +110,7 @@ class waveSplit {
     ];
     let validEnteriesValueRange = {
       aniSpeed: function (e) {
-        return e <= 6000 && e >= 50;
+        return e <= 5 && e >= 1;
       },
       inDir: function (e) {
         return e === "left" || e === "right";
@@ -264,7 +264,8 @@ class waveSplit {
   }
 
   speedUpdate() {
-    this.aniSpeed = 6100 - this.aniSpeed;
+    this.aniSpeed = 5100 - (this.aniSpeed*1000);
+    console.log(this.aniSpeed)
     if (
       Object.keys(this.speedOfAnimationReturn()).includes(this.inAni) &&
       !this.speedControl
