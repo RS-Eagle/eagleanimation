@@ -66,7 +66,7 @@ class waveSplit {
       bottomDrop: `opacity: 0;transform: translateY(500px);`,
       leftDrop: `opacity: 0;transform: translateX(-500px);`,
       rightDrop: `opacity: 0;transform: translateX(500px);`,
-      colorFade: `opacity: 0;`,
+      colorFade: `opacity: 0.1;`,
       colorAdd: `opacity: 1;`,
       flipX: `opacity: 0;transform: scale3d(-1, 1, 1);`,
       flipY: `opacity: 0;transform: scale3d(1, -1, 1);`,
@@ -141,7 +141,7 @@ class waveSplit {
       }
     };
     let colorNotAllowedbase = ["colorFade", "colorAdd"];
-    let colorAllowedInColor = ["colorAdd", "colorFade"];
+    let colorAllowedInColor = ["colorAdd",];
     let colorInColor = ["colorFade"];
     //USer Input Endded
     // All Return Varibles
