@@ -88,8 +88,8 @@ class waveSplit {
     };
 
     let speedOfAnimation = {
-      fade: 1.5,
-      flipX: 1.5,
+      fade: 1,
+      flipX: 10.5,
       flipY: 0.3,
     };
 
