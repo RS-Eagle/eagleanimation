@@ -11,7 +11,7 @@ class waveSplit {
     this.running = false;
     this.isIntervalFinished = false;
     this.styleID = "";
-    this.aniSpeed = 4.8;
+    this.aniSpeed = 5;
     this.cssaniSpeed = 6;
     this.pauseTime = 1000;
     this.inDir = "left";
@@ -264,7 +264,7 @@ class waveSplit {
   }
 
   speedUpdate() {
-    this.aniSpeed = 5100 - (this.aniSpeed*1000);
+    this.aniSpeed = 5030 - (this.aniSpeed*1000);
     console.log(this.aniSpeed)
     if (
       Object.keys(this.speedOfAnimationReturn()).includes(this.inAni) &&
