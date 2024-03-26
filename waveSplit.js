@@ -11,7 +11,7 @@ class waveSplit {
     this.running = false;
     this.isIntervalFinished = false;
     this.styleID = "";
-    this.aniSpeed = 5;
+    this.aniSpeed = 4.9;
     this.cssaniSpeed = 6;
     this.pauseTime = 1000;
     this.inDir = "left";
@@ -21,6 +21,8 @@ class waveSplit {
     this.speedControl = false;
     this.activator = false;
     this.onView = false;
+    this.isClassAppend = false;
+    this.classAdder = true;
 
     // Animation Decider Varibales
     this.inAni = "bottomFade";
@@ -54,6 +56,7 @@ class waveSplit {
       "colorAdd",
       "flipX",
       "flipY",
+      "wave"
     ];
 
     let animationObjectInitial = {
@@ -70,6 +73,7 @@ class waveSplit {
       colorAdd: `opacity: 1;`,
       flipX: `opacity: 0;transform: scale3d(-1, 1, 1);`,
       flipY: `opacity: 0;transform: scale3d(1, -1, 1);`,
+      wave: `transform: scale(0.9); opacity: 0;`,
     };
     let animationObjectOut = {
       fade: `transform: scale(1); opacity: 1;`,
@@ -85,13 +89,21 @@ class waveSplit {
       colorAdd: ``,
       flipX: `opacity: 1;transform: scale3d(1, 1, 1);`,
       flipY: `opacity: 1;transform: scale3d(1, 1, 1);`,
+      wave: `transform: scale(1); opacity: 1;`,
     };
 
     let speedOfAnimation = {
-      fade: 1,
+      fade: 0.6,
       flipX: 10.5,
       flipY: 0.3,
+      wave:1
     };
+
+    let specialAnimationValue = {
+      repeat:true,
+      speedControl:false,
+
+    }
 
     //
 
@@ -110,7 +122,7 @@ class waveSplit {
     ];
     let validEnteriesValueRange = {
       aniSpeed: function (e) {
-        return e <= 5 && e >= 1;
+        return e <= 4.9 && e >= 1;
       },
       inDir: function (e) {
         return e === "left" || e === "right";
@@ -143,6 +155,7 @@ class waveSplit {
     let colorNotAllowedbase = ["colorFade", "colorAdd"];
     let colorAllowedInColor = ["colorAdd",];
     let colorInColor = ["colorFade"];
+    let specialAni = ["wave"]
     //USer Input Endded
     // All Return Varibles
 
@@ -198,6 +211,12 @@ class waveSplit {
     this.classReturnIn = function () {
       return classInAnimation();
     };
+    this.specialAnimationValueReturn = function(){
+      return specialAnimationValue;
+    }
+    this.specialAni = function(){
+      return specialAni;
+    }
 
     //Return Ended
   }
@@ -211,9 +230,10 @@ class waveSplit {
       this[objKeys[i]] = obj[objKeys[i]];
       if (i + 1 == objKeys.length) {
         this.speedUpdate();
-        this.verify()
+    this.verify()
       }
     }
+    
   }
   verify(){
     this.populator();
@@ -252,29 +272,55 @@ class waveSplit {
     });
   }
 
+  pauseWait(){
+    this.isClassAppend = !this.isClassAppend
+    if(this.classAdder){
+      setTimeout(()=>{
+        this.init();
+      },this.aniSpeed * this.innerSpan.length)
+    }
+    else{
+    setTimeout(() => {
+      this.init()
+    }, this.outTimeFix);
+  }
+  }
+
   init() {
-    if (!this.running) {
-      this.running = !this.running;
-      this.classAppend();
+
+    if (this.classAdder) {
+
+      this.classManiplation();
     } else if (this.repeat) {
-      setTimeout(() => {
-        this.classRemover();
-      }, this.outTimeFix);
+
+      this.classManiplation()
     }
   }
 
   speedUpdate() {
+    if(this.specialAni().includes(this.inAni)){
+      let keys = Object.keys(this.specialAnimationValueReturn());
+      for(let i = 0; i<keys.length; i++){
+          this[keys[i]] = this.specialAnimationValueReturn()[keys[i]];
+      }
+      this.pauseTime = 1000 * (6-this.aniSpeed)
+      this.aniSpeed = 5;
+    }
     this.aniSpeed = 5030 - (this.aniSpeed*1000);
-    console.log(this.aniSpeed)
     if (
       Object.keys(this.speedOfAnimationReturn()).includes(this.inAni) &&
       !this.speedControl
     ) {
       let val = this.speedOfAnimationReturn()[this.inAni];
+
       this.cssaniSpeed = this.aniSpeed / 1000 + val;
     } else {
       this.cssaniSpeed = this.aniSpeed / 1000;
     }
+
+
+
+    
   }
 
   animationDecider() {
@@ -289,9 +335,7 @@ class waveSplit {
       if (e === this.inAni) {
         animationOut += this.animationObjectOutReturn()[e];
       }
-      
     });
-
     animationIn += `transition: all ${this.cssaniSpeed}s ease;`;
     if (!this.colorNotAllowedbaseReturn().includes(this.inAni)) {
       animationIn += `color: ${this.baseColor};`;
@@ -309,24 +353,6 @@ class waveSplit {
     
   }
 
-  classRemover() {
-    let i = 0;
-    if (this.outDir === "left") i = 0;
-    else if (this.outDir === "right") i = this.innerSpan.length - 1;
-    const repeat = () => {
-      this.innerSpan[i].innerText.trim() === ""
-        ? ""
-        : this.innerSpan[i].classList.remove(`${this.classReturnIn()}`);
-      if (this.outDir === "left") i++;
-      else if (this.outDir === "right") i--;
-      if (this.innerSpan.length === i || i < 0) this.isIntervalFinished = true;
-      if (this.innerSpan.length === i || i < 0) {
-        clearInterval(timer);
-        this.classAppend();
-      }
-    };
-    let timer = setInterval(repeat, this.aniSpeed);
-  }
   animate() {
     let styleSheet;
     for (let i = 0; i < document.styleSheets.length; i++) {
@@ -362,22 +388,29 @@ class waveSplit {
     }
 
   }
-  classAppend() {
+  classManiplation(){
+    this.classAdder = !this.classAdder
     this.innerSpan = Array.from(this.path.querySelectorAll("span"));
     this.outTimeFix = this.aniSpeed * this.innerSpan.length + this.pauseTime;
     let i = 0;
-    if (this.inDir === "left") i = 0;
-    else if (this.inDir === "right") i = this.innerSpan.length - 1;
+    if ((this.isClassAppend && this.inDir === "left") || (!this.isClassAppend&&this.outDir === "left") ) i = 0;
+    else if ((this.isClassAppend&&this.inDir === "right") || (!this.isClassAppend && this.outDir === "right")) i = this.innerSpan.length - 1;
     const repeat = () => {
-      this.innerSpan[i].innerText.trim() === ""
+      if(this.isClassAppend){
+        this.innerSpan[i].innerText.trim() === ""
+          ? ""
+          : this.innerSpan[i].classList.add(`${this.classReturnIn()}`);
+      }else if(!this.isClassAppend){
+        this.innerSpan[i].innerText.trim() === ""
         ? ""
-        : this.innerSpan[i].classList.add(`${this.classReturnIn()}`);
-      if (this.inDir === "left") i++;
-      else if (this.inDir === "right") i--;
+        : this.innerSpan[i].classList.remove(`${this.classReturnIn()}`);
+      }
+      if ((this.isClassAppend && this.inDir === "left") || (!this.isClassAppend&&this.outDir === "left")) i++;
+      else if ((this.isClassAppend&&this.inDir === "right") || (!this.isClassAppend && this.outDir === "right")) i--;
       if (this.innerSpan.length === i || i < 0) this.isIntervalFinished = true;
       if (this.innerSpan.length === i || i < 0) clearInterval(timer);
     };
     let timer = setInterval(repeat, this.aniSpeed);
-    this.init();
+    this.pauseWait();
   }
 }
