@@ -56,7 +56,9 @@ class waveSplit {
       "colorAdd",
       "flipX",
       "flipY",
-      "wave"
+      "wave",
+      "waveUp",
+      "waveLeft"
     ];
 
     let animationObjectInitial = {
@@ -74,6 +76,8 @@ class waveSplit {
       flipX: `opacity: 0;transform: scale3d(-1, 1, 1);`,
       flipY: `opacity: 0;transform: scale3d(1, -1, 1);`,
       wave: `transform: scale(0.9); opacity: 0;`,
+      waveUp: `transform: scale(1.15); `,
+      waveLeft: `transform: rotate(-5deg); `,
     };
     let animationObjectOut = {
       fade: `transform: scale(1); opacity: 1;`,
@@ -90,13 +94,18 @@ class waveSplit {
       flipX: `opacity: 1;transform: scale3d(1, 1, 1);`,
       flipY: `opacity: 1;transform: scale3d(1, 1, 1);`,
       wave: `transform: scale(1); opacity: 1;`,
+      waveUp: `transform: scale(1); opacity: 1;`,
+      waveLeft: `transform: rotate(5deg); `,
     };
 
     let speedOfAnimation = {
       fade: 0.6,
       flipX: 10.5,
       flipY: 0.3,
-      wave:1
+      wave:1,
+      waveUp:0.5,
+      waveLeft:0.5,
+
     };
 
     let specialAnimationValue = {
@@ -155,7 +164,7 @@ class waveSplit {
     let colorNotAllowedbase = ["colorFade", "colorAdd"];
     let colorAllowedInColor = ["colorAdd",];
     let colorInColor = ["colorFade"];
-    let specialAni = ["wave"]
+    let specialAni = ["wave","waveUp","waveLeft"]
     //USer Input Endded
     // All Return Varibles
 
