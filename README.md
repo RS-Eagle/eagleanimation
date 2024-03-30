@@ -2,8 +2,7 @@
 # Eagle Animation Library
 
 
-Welcome to the guide for the "Eagle Animation Library"! This cool library was made by Me new to coding, just for fun! Keep in mind. Even though it started as a fun project, the Create Is Animation Library has lots of neat text animations you can use to make your websites more exciting. Take a look through this guide to find out how to use these animations.
-
+Welcome to the guide for the "Eagle Animation Library"! This cool library was made by me, someone new to coding, just for fun! Keep in mind, even though it started as a fun project, the Eagle Animation Library has lots of neat text animations you can use to make your websites more exciting. Take a look through this guide to find out how to use these animations.
 
 ## Features
 
