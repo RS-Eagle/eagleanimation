@@ -3,9 +3,9 @@
 class waveSplit {
   constructor(main) {
     this.main = main;
-    this.innerText = this.main.innertext;
-    this.path = this.main.path;
-    this.splitText = this.innerText.split("");
+    this.path = "";
+    this.innerText = "";
+    this.splitText = ""
     this.innerSpan = [];
     this.repeat = false;
     this.running = false;
@@ -242,9 +242,10 @@ class waveSplit {
     this.verify()
       }
     }
-    
+
   }
   verify(){
+    this.innerText = this.path.innerText
     this.populator();
     this.animationDecider();
     this.animate();
@@ -272,7 +273,7 @@ class waveSplit {
   scrollTri() {
     document.addEventListener("scroll",  ()=> {
       
-      if (this.isInViewport(this.main.path)) {
+      if (this.isInViewport(this.path)) {
         if (!this.activator) {
           this.activator = true;
           this.init()
@@ -298,7 +299,7 @@ class waveSplit {
   init() {
 
     if (this.classAdder) {
-
+   
       this.classManiplation();
     } else if (this.repeat) {
 
@@ -333,6 +334,7 @@ class waveSplit {
   }
 
   animationDecider() {
+
     let animationIn = `display: inline-block;`;
     let animationOut = ``;
     Object.keys(this.animationObjectInitialReturn()).forEach((e) => {
@@ -363,6 +365,7 @@ class waveSplit {
   }
 
   animate() {
+
     let styleSheet;
     for (let i = 0; i < document.styleSheets.length; i++) {
       if (
@@ -387,6 +390,7 @@ class waveSplit {
     
   }
   populator() {
+    this.splitText = this.innerText.split("")
     this.path.innerText = "";
     for (let i = 0; i < this.innerText.length; i++) {
       this.path.innerHTML += `<span class="${
