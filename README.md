@@ -29,7 +29,7 @@ Add CDN link of Library in bottom of your html file.
     <script src="https://cdn.jsdelivr.net/gh/RS-Eagle/eagleanimation/waveSplit.min.js"></script> 
     <script src="https://cdn.jsdelivr.net/gh/RS-Eagle/eagleanimation/main.min.js"></script> 
 
-    - Note :- Add CDN In Same Order
+- Note :- Add CDN In Same Order
 
 - ### Initialization: 
 Create an instance of the rsAnimate() class by providing a text element as a parameter.
