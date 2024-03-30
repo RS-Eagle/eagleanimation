@@ -32,7 +32,7 @@ Add CDN link of Library in bottom of your html file.
 - Note :- Add CDN In Same Order
 
 - ### Initialization: 
-Create an instance of the rsAnimate() class by providing a text element as a parameter.
+Create an instance of the rsAnimate() class.
 #### For Example :-
     const animation = new rsAnimate();
 
