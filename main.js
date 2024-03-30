@@ -26,18 +26,8 @@ class rsAnimate {
     }
   }
 
-  //  All Initialization
-  twriteInit(inputList) {
-    if (Array.isArray(inputList) === false) {
-      throw new TypeError("list must be an array");
-    }
-    this.twritereturn().verify(inputList);
-  }
-  waveSplitInit(obj) {
-    this.waveSplitUpdate(obj);
-  }
 
-  // All Updates
+
 
   twriteUpdate(obj) {
     if (typeof obj === "object" && !Array.isArray(obj)) {

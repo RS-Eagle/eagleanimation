@@ -24,22 +24,26 @@ Welcome to the guide for the "Eagle Animation Library"! This cool library was ma
   - Link Of Demo Code Repo :- [Click Me And Download The Code](https://github.com/RS-Eagle/demo-eagleanimation){Use:- CTRL + Click}
 
 ## Usage
+- ### Add CDN:
+Add CDN link of Library in bottom of your html file.
+#### For Example :- 
+    <script src="https://cdn.jsdelivr.net/gh/RS-Eagle/eagleanimation/waveSplit.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/gh/RS-Eagle/eagleanimation/main.min.js"></script> 
+
+    - Note :- Add CDN In Same Order
 
 - ### Initialization: 
 Create an instance of the rsAnimate() class by providing a text element as a parameter.
 #### For Example :-
-    const animation = new rsAnimate(path);
+    const animation = new rsAnimate();
 
-
-`path`: The text element on which the animation will be applied.
-#### For Example:-
-     const path =  document.querySelector("h2");
 
 - ### Configuration: 
 Customize the animation by passing an options object to the waveSplitInit function.
 
 #### For Exmaple:- 
     animation.waveSplitInit({
+        path: document.querySelector(".myText"); // Path Of Your element
         repeat:false,    // Boolean indicating whether the animation should repeat.
         inAni: "flipY",    // Name of the desired animation effect.
         baseColor: "white",    // Base color of the text.
@@ -56,6 +60,7 @@ Customize the animation by passing an options object to the waveSplitInit functi
 
 | Keyword  | Description |
 | ------------- | ------------- |
+| `path` | Path Of Your Element |
 |  `repeat` | Set to true if the animation should repeat, false otherwise.  |
 | `inAni`  |  Name of the animation effect to apply. |
 | `speedControl` | Set To True if you want to set Animation Speed And Word Printing Speed Different. If True The Printing Speed Will Be The Animation Speed. There Are Some Animation (`fade`, `flipX`, `flipY`) Which Have Their Own Word Printing Speed. So To Disable That Your Need To Set `speedControl` True |
@@ -71,10 +76,11 @@ Customize the animation by passing an options object to the waveSplitInit functi
 - ### Usage Guidelines:
     - #### Ranges:
         - `pauseTime`:  0 < pauseTime < 10000;
-        - `aniSpeed`: 1 < aniSpeed < 5;
+        - `aniSpeed`: 1 < aniSpeed < 4.9;
     - #### Valid Inputs:
+        - `path`: Path Should be A Valid Element Path
         - `repeat`: Should be either true or false
-        - `inAni`: Should be one of the predefined animation names, including `fade`,`leftFade`, `rightFade`, `topFade`, `bottomFade`, `topDrop`, `bottomDrop`, `leftDrop`, `rightDrop`, `colorFade`, `colorAdd`,`flipX`,`flipY`.
+        - `inAni`: Should be one of the predefined animation names, including `fade`,`leftFade`, `rightFade`, `topFade`, `bottomFade`, `topDrop`, `bottomDrop`, `leftDrop`, `rightDrop`, `colorFade`, `colorAdd`,`flipX`,`flipY`,`wave`,`waveUp`,`waveLeft`.
         - `baseColor`: Should be a valid CSS color
         - `inColor`: Should be a valid CSS color
         - `inDir` and `outDir`: Should be left or right
@@ -104,5 +110,5 @@ Hi there! I'm Raman Kumar Charak, a passionate Frontend Web Developer with a lov
 
 ## Feedback
 
-If you have any feedback, please reach out to us at ramankumarcharak@gmail.com
+If you have any feedback, please reach out to me at ramankumarcharak@gmail.com
 
