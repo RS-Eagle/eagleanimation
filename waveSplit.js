@@ -56,9 +56,10 @@ class waveSplit {
       "colorAdd",
       "flipX",
       "flipY",
-      "wave",
+      "waveOpa",
       "waveUp",
-      "waveLeft"
+      "waveLeft",
+      "wave"
     ];
 
     let animationObjectInitial = {
@@ -75,9 +76,10 @@ class waveSplit {
       colorAdd: `opacity: 1;`,
       flipX: `opacity: 0;transform: scale3d(-1, 1, 1);`,
       flipY: `opacity: 0;transform: scale3d(1, -1, 1);`,
-      wave: `transform: scale(0.9); opacity: 0;`,
+      waveOpa: `transform: scale(0.9); opacity: 0;`,
       waveUp: `transform: scale(1.15); `,
       waveLeft: `transform: rotate(-5deg); `,
+      wave: `transform: translateY(10px);`
     };
     let animationObjectOut = {
       fade: `transform: scale(1); opacity: 1;`,
@@ -93,18 +95,20 @@ class waveSplit {
       colorAdd: ``,
       flipX: `opacity: 1;transform: scale3d(1, 1, 1);`,
       flipY: `opacity: 1;transform: scale3d(1, 1, 1);`,
-      wave: `transform: scale(1); opacity: 1;`,
+      waveOpa: `transform: scale(1); opacity: 1;`,
       waveUp: `transform: scale(1); opacity: 1;`,
       waveLeft: `transform: rotate(5deg); `,
+      wave:`transform: translateY(0px)`
     };
 
     let speedOfAnimation = {
       fade: 0.6,
       flipX: 10.5,
       flipY: 0.3,
-      wave:1,
+      waveOpa:1,
       waveUp:0.5,
       waveLeft:0.5,
+      wave:1.5,
 
     };
 
@@ -164,7 +168,8 @@ class waveSplit {
     let colorNotAllowedbase = ["colorFade", "colorAdd"];
     let colorAllowedInColor = ["colorAdd",];
     let colorInColor = ["colorFade"];
-    let specialAni = ["wave","waveUp","waveLeft"]
+    let specialAni = ["waveOpa","waveUp","waveLeft","wave"]
+    let customPauseTime = ["wave","waveOpa"]
     //USer Input Endded
     // All Return Varibles
 
@@ -225,6 +230,9 @@ class waveSplit {
     }
     this.specialAni = function(){
       return specialAni;
+    }
+    this.customPauseTimeReturn = function(){
+      return customPauseTime;
     }
 
     //Return Ended
@@ -313,7 +321,9 @@ class waveSplit {
       for(let i = 0; i<keys.length; i++){
           this[keys[i]] = this.specialAnimationValueReturn()[keys[i]];
       }
-      this.pauseTime = 1000 * (6-this.aniSpeed)
+      this.customPauseTimeReturn().includes(this.inAni)?this.pauseTime = 0 : this.pauseTime = 1000 * (6-this.aniSpeed)
+      
+      
       this.aniSpeed = 5;
     }
     this.aniSpeed = 5030 - (this.aniSpeed*1000);
