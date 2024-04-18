@@ -41,7 +41,7 @@ Create an instance of the rsAnimate() class.
 Customize the animation by passing an options object to the waveSplitInit function.
 
 #### For Exmaple:- 
-    animation.waveSplitInit({
+    animation.textAnimate({
         path: document.querySelector(".myText"); // Path Of Your element
         repeat:false,    // Boolean indicating whether the animation should repeat.
         inAni: "flipY",    // Name of the desired animation effect.
