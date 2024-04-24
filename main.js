@@ -49,6 +49,7 @@ class rsAnimate {
         obj.path === undefined ||
         obj.path.nodeType !== 1
       ) {
+       
         throw new TypeError("Please Enter A Valid Path");
       } else {
         this.classwaveSplitObjFunc(obj)
@@ -57,6 +58,7 @@ class rsAnimate {
   }
 
   waveSplitUpdate(obj,randomNumber) {
+    console.log('hh')
     if (typeof obj === "object" && !Array.isArray(obj)) {
       let updates = Object.keys(obj).filter((e) =>
         this.waveSplitreturn().validKeysReturn().includes(e)
@@ -75,7 +77,7 @@ class rsAnimate {
         }
       }
     } else {
-      throw new TypeError("The update value must be the object.");
+      throw new TypeError("Please Enter Valid Object in textAnimate");
     }
   }
 }

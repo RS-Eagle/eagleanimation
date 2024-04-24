@@ -120,6 +120,8 @@ class waveSplit {
     let specialAnimationValue = {
       repeat:true,
       speedControl:false,
+      inDir:"left",
+      outDir:"left"
 
     }
 
@@ -422,14 +424,12 @@ class waveSplit {
     this.innerSpan = Array.from(this.path.querySelectorAll("span"));
     this.outTimeFix = this.aniSpeed * this.innerSpan.length + this.pauseTime;
     let i = 0;
-    console.log(i)
-    console.log(this.isClassAppend , this.inDir)
+
     if ((this.isClassAppend && this.inDir === "left") || (!this.isClassAppend&&this.outDir === "left") ) i = 0;
     else if ((this.isClassAppend&&this.inDir === "right") || (!this.isClassAppend && this.outDir === "right")) i = this.innerSpan.length - 1;
-    console.log(i)
+
     const repeat = () => {
-      console.log(i)
-      console.log(this.isClassAppend)
+
       if(this.isClassAppend){
         this.innerSpan[i].innerText.trim() === ""
           ? ""
