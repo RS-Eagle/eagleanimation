@@ -79,7 +79,7 @@ Customize the animation by passing an options object to the waveSplitInit functi
     - #### Valid Inputs:
         - `path`: Path Should be A Valid Element Path
         - `repeat`: Should be either true or false
-        - `inAni`: Should be one of the predefined animation names, including `fade`,`leftFade`, `rightFade`, `topFade`, `bottomFade`, `topDrop`, `bottomDrop`, `leftDrop`, `rightDrop`, `colorFade`, `colorAdd`,`flipX`,`flipY`,`wave`,`waveUp`,`waveLeft`,`waveOpa`.
+        - `inAni`: Should be one of the predefined animation names, including `fade`,`leftFade`, `rightFade`, `topFade`, `bottomFade`, `topDrop`, `bottomDrop`, `leftDrop`, `rightDrop`, `colorFade`, `colorAdd`,`flipX`,`flipY`,`waveX`,`waveY`,`waveUp`,`waveLeft`,`waveOpa`.
         - `baseColor`: Should be a valid CSS color
         - `inColor`: Should be a valid CSS color
         - `inDir` and `outDir`: Should be left or right

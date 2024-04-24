@@ -59,7 +59,8 @@ class waveSplit {
       "waveOpa",
       "waveUp",
       "waveLeft",
-      "wave"
+      "waveX",
+      "waveY"
     ];
 
     let animationObjectInitial = {
@@ -79,7 +80,9 @@ class waveSplit {
       waveOpa: `transform: scale(0.9); opacity: 0;`,
       waveUp: `transform: scale(1.15); `,
       waveLeft: `transform: rotate(-5deg); `,
-      wave: `transform: translateY(10px);`
+      waveY: `transform: translateY(10px);`,
+      waveX: `transform: translateX(10px);`,
+
     };
     let animationObjectOut = {
       fade: `transform: scale(1); opacity: 1;`,
@@ -98,7 +101,8 @@ class waveSplit {
       waveOpa: `transform: scale(1); opacity: 1;`,
       waveUp: `transform: scale(1); opacity: 1;`,
       waveLeft: `transform: rotate(5deg); `,
-      wave:`transform: translateY(0px)`
+      waveY:`transform: translateY(0px)`,
+      waveX:`transform: translateX(0px)`
     };
 
     let speedOfAnimation = {
@@ -108,7 +112,8 @@ class waveSplit {
       waveOpa:1,
       waveUp:0.5,
       waveLeft:0.5,
-      wave:1.5,
+      waveY:1.5,
+      waveX:1.5
 
     };
 
@@ -168,8 +173,8 @@ class waveSplit {
     let colorNotAllowedbase = ["colorFade", "colorAdd"];
     let colorAllowedInColor = ["colorAdd",];
     let colorInColor = ["colorFade"];
-    let specialAni = ["waveOpa","waveUp","waveLeft","wave"]
-    let customPauseTime = ["wave","waveOpa"]
+    let specialAni = ["waveOpa","waveUp","waveLeft","waveY","waveX"]
+    let customPauseTime = ["waveY","waveOpa","waveX",]
     //USer Input Endded
     // All Return Varibles
 
@@ -283,6 +288,7 @@ class waveSplit {
       
       if (this.isInViewport(this.path)) {
         if (!this.activator) {
+
           this.activator = true;
           this.init()
         }
@@ -291,7 +297,7 @@ class waveSplit {
   }
 
   pauseWait(){
-    this.isClassAppend = !this.isClassAppend
+    
     if(this.classAdder){
       setTimeout(()=>{
         this.init();
@@ -305,7 +311,7 @@ class waveSplit {
   }
 
   init() {
-
+    this.isClassAppend = !this.isClassAppend
     if (this.classAdder) {
    
       this.classManiplation();
@@ -416,9 +422,14 @@ class waveSplit {
     this.innerSpan = Array.from(this.path.querySelectorAll("span"));
     this.outTimeFix = this.aniSpeed * this.innerSpan.length + this.pauseTime;
     let i = 0;
+    console.log(i)
+    console.log(this.isClassAppend , this.inDir)
     if ((this.isClassAppend && this.inDir === "left") || (!this.isClassAppend&&this.outDir === "left") ) i = 0;
     else if ((this.isClassAppend&&this.inDir === "right") || (!this.isClassAppend && this.outDir === "right")) i = this.innerSpan.length - 1;
+    console.log(i)
     const repeat = () => {
+      console.log(i)
+      console.log(this.isClassAppend)
       if(this.isClassAppend){
         this.innerSpan[i].innerText.trim() === ""
           ? ""
