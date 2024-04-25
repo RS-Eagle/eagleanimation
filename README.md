@@ -38,7 +38,7 @@ Create an instance of the rsAnimate() class.
 
 
 - ### Configuration: 
-Customize the animation by passing an options object to the waveSplitInit function.
+Customize the animation by passing an options object to the textAnimate function.
 
 #### For Exmaple:- 
     animation.textAnimate({
